@@ -39,7 +39,7 @@ __可以直接把这个脚本放在postman的pre-scripts里面__
         console.log('Request body is empty');
         }
 
-![alt text](image-1.png)
+![alt text](image/image-1.png)
 
   __配置鉴权__
-![alt text](image.png)
+![alt text](image/image.png)
