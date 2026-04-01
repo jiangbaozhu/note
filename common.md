@@ -74,3 +74,6 @@ slub
 **用这个指令可以打印所有线程栈：**  
 
         ps -eT -o pid,tid --no-headers | xargs -n2 sh -c 'echo "PID: $0  TID: $1"; cat /proc/$0/task/$1/stack 2>/dev/null; echo "----------------------"' 
+**配置免密登录**  
+        ssh-keygen -t rsa
+         ssh-copy-id root@55.99.28.9
