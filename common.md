@@ -76,4 +76,8 @@ slub
         ps -eT -o pid,tid --no-headers | xargs -n2 sh -c 'echo "PID: $0  TID: $1"; cat /proc/$0/task/$1/stack 2>/dev/null; echo "----------------------"' 
 **配置免密登录**  
         ssh-keygen -t rsa
-         ssh-copy-id root@55.99.28.9
+        ssh-copy-id root@55.99.28.9
+
+**指定网卡抓包**  
+
+        sudo tcpdump -i ib38-1  -w captureib38-1111.pcap
