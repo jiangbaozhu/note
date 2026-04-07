@@ -51,7 +51,16 @@ __查看nfs导出目录是否存在__
 
 **udc读缓存信息**  
 
-    watch -d -n 1 "storware uds udc fc_mem_dump"
+    watch -d -n 1 "storware uds udc fc_mem_dump"  
+    
 **udc设置淘汰水位**  
+
     storware-dev uds set conf module develop key udc_fc_free_watermark_low value 90
-    storware-dev uds set conf module develop key udc_fc_free_watermark_min value 90
+    storware-dev uds set conf module develop key udc_fc_free_watermark_min value 90  
+
+**性能问题**  
+
+    按照nfs/epc->udc->objecter->eng/mds->osd/db的顺序，每层关键的perf点为：
+    nfs_proc_process/EPC_MSG_PROCESS -> udc_obj_aio_read/udc_obj_aio_write -> engine_opproc_handler -> pg.*read/pg.*write
+    nfs_proc_process/EPC_MSG_PROCESS -> udc_readdir/udc_setattr -> mds_handle_client_request -> mds_mdstore_kvdb_tx_submit
+    默认perf日志：/var/log/storage/perf/perf_inc_uds/dpe.csv
