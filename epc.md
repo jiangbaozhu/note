@@ -1,20 +1,20 @@
-__epc日志等级__  
+**epc日志等级**  
 
     storware epc log set level debug
-__杀epc进程__  
+**杀epc进程**  
 
     ps -ef| grep epc | awk {'print $2'}| xargs kill -9
     umount -l /mnt/j
     mount |grep epc
     ps -ef| grep epc
         
-__拿epc堆栈__  
+**拿epc堆栈**  
 
     ps -Tp 36850 |grep udc_io |awk '{print $2}' |xargs -d '\n' -I % sh -c 'pstack %'
-__查看epc帮助信息__  
+**查看epc帮助信息**  
 
     storware epc help cmds
-__epc进程相关文件__  
+**epc进程相关文件**  
 
 epc_conf_opt.conf——这个是epc的基本配置参数，包括连接数、绑核参数等；
 epc_conf_debug.conf——这个是配置免拷贝内存等级划分的，这个业务一般感知不到；
@@ -23,17 +23,17 @@ load_epc_module.sh——加载内核ko的脚本。
 
 
 
-__epc内核开启debug日志__
+**epc内核开启debug日志**
 
     echo -n 'module epc +pflmt' > /sys/kernel/debug/dynamic_debug/control
     echo -n 'module epc -pflmt' > /sys/kernel/debug/dynamic_debug/control
-__单独开几行日志__  
+**单独开几行日志**  
 
     echo 'file epc_file.c line 1910 +pflmt' > /sys/kernel/debug/dynamic_debug/control
     echo 'file epc_file.c line 1864 +pflmt' > /sys/kernel/debug/dynamic_debug/control
     dmesg -C ; dmesg -Tw > kernel.log
 
-__epc 开启crc校验方法：__  
+**epc 开启crc校验方法：**  
 
     修改配置文件/opt/h3c/etc/conf/default/develop.conf
     [epc_common_crc_split_size, UINT32, 0~4294967295, WRITE-SYNC, 8192][图片]epc内核态生效：
@@ -42,10 +42,10 @@ __epc 开启crc校验方法：__
     epc用户态生效：
     重启epc
 
-__epc看zmem的占用__
+**epc看zmem的占用**
     storware epc show memory-pool stat all
 
-__看普通内存的占用__  
+**看普通内存的占用**  
 
     storware epc show memory
     top -o RES 

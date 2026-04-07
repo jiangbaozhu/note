@@ -1,5 +1,5 @@
 
-__集群状态检查__  
+**集群状态检查**  
 
     storware mon osd show diskpool all #查询硬盘池信息
     storware mon osd show pool all #查询存储池信息
@@ -7,26 +7,26 @@ __集群状态检查__
     storware mon get mon_status #查询mon状态
     ps -ef | grep dpe
 
-__查询memory-pool__  
+**查询memory-pool**  
 
     storware dpe show memory-pool stat all
 
-__重启配置流__  
+**重启配置流**  
 
     supervisorctl restart ud-leader
-__hrpc帮助信息__  
+**hrpc帮助信息**  
 
     storware dpe help hrpc
-__安装部署失败日志__  
+**安装部署失败日志**  
 
     /var/log/shell_util/package.log
 
-__过滤hos超时op__  
+**过滤hos超时op**  
 
     zgrep  -E "cost [1-9][0-9]{3,}" hos.client.epc.log-20241012-223*
     grep -E "cost [1-9][0-9]{3,}"  /var/log/storage/hos/ 
 
-__两节点部署__  
+**两节点部署**  
 
     1.安装大包
     2.vim /opt/h3c/etc/storware.conf
@@ -40,7 +40,7 @@ __两节点部署__
     3.supervisorctl restart cm-leader，然后登陆handy开始部署即可（注意：需要先重启进程再登录handy）
 
 onestor resctl  show  config  
-__下一代升级问题__  
+**下一代升级问题**  
 
     状态文件：  记录当前升级状态及失败原因
                     /opt/upd/updconf/step_state.conf
@@ -60,7 +60,7 @@ __下一代升级问题__
                     3、查看主handy节点得UPDC日志，进一步缩小问题时间点
                     4、查看问题节点的UPDS日志，分析具体原因
 
-__查看engine启动状态__
+**查看engine启动状态**
     storware  dpe eng_ctrl engine_detail_status
 
 **全组件开日志**

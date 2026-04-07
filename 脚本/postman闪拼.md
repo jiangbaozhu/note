@@ -1,5 +1,5 @@
 # postman闪拼对象操作
-__请求url：__  
+**请求url：**  
 >https://endpoint:8082/{bucketname}/{dst_objname}?fastcompose  
 >http://55.108.84.192:8082/lxbu1/file3?fastcompose  
 
@@ -20,7 +20,7 @@ __请求url：__
         </SourceObjects>
     </FastCompose>
 
-__可以直接把这个脚本放在postman的pre-scripts里面__
+**可以直接把这个脚本放在postman的pre-scripts里面**
 
         // 计算Content-MD5
         const crypto = require('crypto-js');
@@ -41,5 +41,5 @@ __可以直接把这个脚本放在postman的pre-scripts里面__
 
 ![alt text](image/image-1.png)
 
-  __配置鉴权__
+  **配置鉴权**
 ![alt text](image/image.png)

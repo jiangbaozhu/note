@@ -1,33 +1,33 @@
-__打印addr对应地址内存，a是打印格式__ 
+**打印addr对应地址内存，a是打印格式** 
 
         (gdb) x/[len]a [addr]
         (gdb) x/[N]c [addr]  打印 N 个字符
         (gdb) x/1s [addr]  打印字符串
-__以二进制打印addr1~addr2的内存__  
+**以二进制打印addr1~addr2的内存**  
 
         (gdb) dump binary memory result.bin [addr1] [addr2]
 
-__查看是否asan包__  
+**查看是否asan包**  
 
         nm -D /opt/h3c/bin/mon |grep malloc
                          U malloc_tag
 
 
 
-__模拟RDMA__  
+**模拟RDMA**  
 
         rdma link add rex0 type rxe netdev ethA3d-0
         rping  -s -a 192.168.182.166 -v -C 10
         rping  -c -a 192.168.182.166 -v -C 10
 
-__清os全部缓存__  
+**清os全部缓存**  
 
         echo 3 > /proc/sys/vm/drop_caches
-__大页进程__  
+**大页进程**  
 
 systemctl status  spdk_huge  
 
-__uds服务 ,gdb忽略SIGPIPE信号__  
+**uds服务 ,gdb忽略SIGPIPE信号**  
         handle SIGPIPE nostop
 
 

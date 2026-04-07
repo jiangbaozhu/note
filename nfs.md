@@ -1,10 +1,10 @@
 
-__挂载nfs__  
+**挂载nfs**  
 
     mount -t nfs -o vers=3,  10.121.29.193:/nfs_jbz /jbz
 
     
-__查看nfs导出目录是否存在__  
+**查看nfs导出目录是否存在**  
 
     storware uds  nfs  show_export export_id 3
     cat /opt/h3c/etc/uds/export.conf
@@ -52,7 +52,7 @@ __查看nfs导出目录是否存在__
 **udc读缓存信息**  
 
     watch -d -n 1 "storware uds udc fc_mem_dump"  
-    
+
 **udc设置淘汰水位**  
 
     storware-dev uds set conf module develop key udc_fc_free_watermark_low value 90
