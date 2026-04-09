@@ -105,7 +105,12 @@ storware resctl show  quota
 **mds修改配置**  
 
     storware mode dev enable && storware-dev dpe set conf module develop key mds_mix_rd_cache_switch value true
-    storware mode dev enable && storware-dev dpe set conf module develop key mds_mix_rd_cache_switch value true
+    storware mode dev enable && storware-dev dpe set conf module develop key mds_mix_rd_cache_switch value true  
+
 **vip迁移**  
-  
-storware mon vip assign vip {10.125.64.80} node {node82}
+
+    storware mon vip assign vip {10.125.64.80} node {node82}
+
+**升级包上传路径**  
+
+    /opt/web_upload_pkg/
