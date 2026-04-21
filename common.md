@@ -96,6 +96,7 @@ slub
         storware 进程名 show memory module 0x1234(十六进制mid) [verbose all] [unit kb/mb/gb]
         找到挡位信息后，根据挡位排查相关结构体，再进一步排查代码
         根据挡位信息，锁定结构体排查范围的方法：readelf -wi /opt/h3c/lib/libudc.so 可以看到每个结构体的byte_size
+        readelf -wi /opt/h3c/lib/libudc.so | grep -A20 "DW_TAG_structure_type" | grep -E "(DW_AT_name|DW_AT_byte_size)"
         4. 如果是ult/hrpc/log等基础支撑组件内存高，多半是业务使用方法错误，导致ult堆积，hrpc堆积，log实例堆积等
         5. 查看ult池信息
         storware epc show uthread xstream all # 获取所有xstream
@@ -106,4 +107,11 @@ slub
         storware epc show uthread blocked_ults_in_pool 0x617000003500
         6. 查看hrpc是否有集中占用，主要通过业务侧日志和hrpc日志确认，短时间内使用rpc过多，hrpc日志会有默认打印（找到例子后补充）
         7. 查看log实例情况
-        storware 进程名 show log
+        storware 进程名 show log        
+
+**inode和dn大小**  
+
+        (gdb) print  sizeof(struct udc_inode)
+        $1 = 264
+        (gdb) print  sizeof(struct udc_dentry)
+        $3 = 128
